@@ -1,0 +1,39 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function()
+  {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+  
+  
+  document.getElementById('btn-submit').addEventListener('click',DoJob);
+  
+  function DoJob()
+  {
+    var userInfo = {};
+    
+    userInfo.FirstName = document.getElementById('Fname').value;
+    userInfo.LastName = document.getElementById('Lname').value;
+    userInfo.App = document.getElementById('App').value;
+    
+    google.script.run.newClicked(userInfo);
+    
+    document.getElementById('Fname').value = "";
+    document.getElementById('Lname').value = "";
+    document.getElementById('App').value = "";
+    
+    var MyApp = document.getElementById('App');
+    MyApp.selectedIndex = 0;
+    M.FormSelect.init(MyApp);
+    
+  }
+</script>
+
+
+
+
+
+
+
+
+
