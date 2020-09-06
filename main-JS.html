@@ -5,8 +5,8 @@
     var instances = M.FormSelect.init(elems);
   });
   
-  
   document.getElementById('btn-submit').addEventListener('click',DoJob);
+  document.getElementById('zip').addEventListener('input',getEstimate);
   
   function DoJob()
   {
@@ -15,18 +15,43 @@
     userInfo.FirstName = document.getElementById('Fname').value;
     userInfo.LastName = document.getElementById('Lname').value;
     userInfo.App = document.getElementById('App').value;
+    userInfo.zip = document.getElementById('zip').value;
+    userInfo.est = document.getElementById('est').value;
+
     
     google.script.run.newClicked(userInfo);
     
     document.getElementById('Fname').value = "";
     document.getElementById('Lname').value = "";
     document.getElementById('App').value = "";
+    document.getElementById('zip').value = "";
+    document.getElementById('est').value = "";
+    M.updateTextFields();
     
     var MyApp = document.getElementById('App');
     MyApp.selectedIndex = 0;
-    M.FormSelect.init(MyApp);
-    
+    M.FormSelect.init(MyApp); 
   }
+  
+  function getEstimate()
+  {
+    var zipCode = document.getElementById('zip').value;
+    
+    if(zipCode.length === 6)
+    {
+      google.script.run.withSuccessHandler(updateEstimate).findEstimate(zipCode);
+    }
+  }
+  
+  function updateEstimate(shippingCost)
+  {
+     document.getElementById('est').value = shippingCost;
+     M.updateTextFields();
+  }
+  
+  
+  
+  
 </script>
 
 

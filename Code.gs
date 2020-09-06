@@ -22,11 +22,31 @@ function newClicked(userInfo)
   var SpreadSheet = SpreadsheetApp.openByUrl(url);
   var workSheet = SpreadSheet.getSheetByName("form");
   
-  workSheet.appendRow([userInfo.FirstName,userInfo.LastName,userInfo.App,new Date()]); 
+  workSheet.appendRow([userInfo.FirstName,userInfo.LastName,userInfo.App,userInfo.zip,userInfo.est,new Date()]); 
 }
+
+function findEstimate(zipCode)
+{
+  var SpreadSheet = SpreadsheetApp.openByUrl(url);
+  var workSheet = SpreadSheet.getSheetByName("Estimate");
+  var data = workSheet.getRange(1,1,workSheet.getLastRow(),2).getValues();
+  
+  var zipCodeList = data.map(function(r) {return r[0];} );
+  var shippingList = data.map(function(r) {return r[1];} );
+  
+  var position = zipCodeList.indexOf(zipCode);
+  
+  if(position > -1)
+  {
+    return "Rs." + shippingList[position].toFixed(2);
+  }
+  else
+  {
+    return "Unavailable";
+  }
+}
+
 
 function include(filename){
   return HtmlService.createHtmlOutputFromFile(filename).getContent();
 }
-
-
