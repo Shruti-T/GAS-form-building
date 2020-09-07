@@ -1,9 +1,26 @@
 <script>
   document.addEventListener('DOMContentLoaded', function()
   {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems);
+    var selectBoxes = document.querySelectorAll('select');
+    M.FormSelect.init(selectBoxes);
+    
+    google.script.run.withSuccessHandler(populateDates).getCalendarBusyDays();
+    console.log("getCalendarBusyDays.valueOf()");
   });
+  
+  function populateDates(disabledDays)
+  {
+    var datePicker = document.getElementById('prefDate');
+    M.Datepicker.init(datePicker,{
+      disableDayFn: function(day)
+      { 
+        return disabledDays.indexOf(day.valueOf()) >-1 || day.valueOf() < new Date().valueOf(); 
+      }   
+    });
+    
+  }
+  
+  
   
   document.getElementById('btn-submit').addEventListener('click',DoJob);
   document.getElementById('zip').addEventListener('input',getEstimate);

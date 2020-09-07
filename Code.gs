@@ -50,3 +50,45 @@ function findEstimate(zipCode)
 function include(filename){
   return HtmlService.createHtmlOutputFromFile(filename).getContent();
 }
+
+
+function getCalendarBusyDays()
+{
+  var startDate = new Date();
+  var endDate = new Date(new Date().setYear(startDate.getFullYear()+1));
+  Logger.log(endDate);
+  var calendar = CalendarApp.getCalendarsByName("form project")[0];
+  var events = calendar.getEvents(startDate,endDate);
+  
+  var days = events.map(function(e){ return e.getStartTime().setHours(0,0,0,0); });
+  var uniqueDays = [];
+  
+  days.forEach(function(d){
+    if(uniqueDays.indexOf(d) === -1)
+    {
+      uniqueDays.push(d);
+    }
+  });
+  return uniqueDays;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
