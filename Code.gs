@@ -3,9 +3,16 @@ var url = "https://docs.google.com/spreadsheets/d/1tEHSm0C2IDS_6rL3Motj-Q5SX_Sxx
 // My Modes Of Payment Options.
 function doGet(e)
 {
-  
-  return loadForm();
+  if(e.parameter.v == "form")
+  {
+    return loadForm();
+  }
+  else
+  {
+    return HtmlService.createTemplateFromFile("Home").evaluate();
+  }
 }
+
 
 function loadForm(e)
 {
