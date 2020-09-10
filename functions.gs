@@ -1,7 +1,6 @@
 //Updating my spreadsheet with new user data
 function saveUserInput(userInfo)
 { 
-  
   var SpreadSheet = SpreadsheetApp.openByUrl(url);
   var workSheet = SpreadSheet.getSheetByName("form");
   

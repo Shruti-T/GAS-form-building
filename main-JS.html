@@ -25,7 +25,6 @@
     userInfo.est = document.getElementById('est').value;
     userInfo.prefDate = document.getElementById('prefDate').value;
 
-    
     google.script.run.saveUserInput(userInfo);
     
     document.getElementById('Fname').value = "";
@@ -62,12 +61,12 @@
   function getEstimate()
   {
     var zipCode = document.getElementById('zip').value;
-    
     if(zipCode.length === 6)
     {
       google.script.run.withSuccessHandler(updateEstimate).findEstimate(zipCode);
     }
   }
+  
   function updateEstimate(shippingCost)
   {
      document.getElementById('est').value = shippingCost;
@@ -75,12 +74,3 @@
   }
    
 </script>
-
-
-
-
-
-
-
-
-

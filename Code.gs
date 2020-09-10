@@ -1,6 +1,6 @@
 var url = "https://docs.google.com/spreadsheets/d/1tEHSm0C2IDS_6rL3Motj-Q5SX_Sxx1ezJ11Ck26F5eE/edit#gid=0";
 
-// My Modes Of Payment Options.
+//Calling Form Page From Home page.
 function doGet(e)
 {
   if(e.parameter.v == "form")
@@ -13,7 +13,7 @@ function doGet(e)
   }
 }
 
-
+// My Modes Of Payment Options.
 function loadForm(e)
 {
   var SpreadSheet = SpreadsheetApp.openByUrl(url);
@@ -27,23 +27,3 @@ function loadForm(e)
   
   return tmp.evaluate();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
