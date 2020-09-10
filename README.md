@@ -1,2 +1,3 @@
 # GAS-form-building
-By google app script i am building a form that contains various features.
+This is a form for ordering iteam through online website.
+The details of the customer is saved through backend work using Google App Script. 
