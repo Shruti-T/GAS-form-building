@@ -10,52 +10,83 @@
     <?!= include("main-css");?>
 
   </head>
-  <body>   
+  <body>  
+  
+    <div class="row">
     
-    <div class = "container">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="Fname" type="text" class="validate">
-          <label for="Fname">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="Lname" type="text" class="validate">
-          <label for="Lname">Last Name</label>
-        </div>
-      </div>   <!--CLOSE ROW -->
+    <div class="col s2 sideBar z-depth-5">
+      <div class= "row upSideBar">
+        <p>
+          <i class="medium material-icons prefix">local_florist</i>
+          Fragrance_Flowers.
+        </p>
+        <br>
+      </div>
+        
+      <div class="row underSideBar">
+        <p>Share joy across a distance with all your near and dear ones with Fragrance-Flowers.
+        </p>
+        <br>
+        <p>
+        Here you will find everything you need.
+        </p>
+        <br><br><br><br><br><br><br><br><br>
+      </div>
+    </div>
+    
+    <div class = "container z-depth-3">
+      <div class="col s9 offset-s1">
       
-      <div class="row">
-        <div class="input-field col s6">
-          <select id = "Modes">
-            <option disabled selected>Choose your option</option>  
-            <?!= list; ?> 
-          </select>
-          <label>Modes Of Payment</label>
-        </div>
-        <div class="input-field col s6">
-           <input id = "prefDate" type="text" class="datepicker">
-           <label for="prefDate">Pick Delivery Date</label>
-        </div>
-      </div> <!--CLOSE ROW -->
-     
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="zip" type="text" class="validate">
-          <label for="zip">Zip Code</label>
-        </div>
-        <div class="input-field col s6">
-          <input disabled id ="est" type="text" class="validate">
-          <label for="est">Estimate</label>
-        </div>
-      </div>   <!--CLOSE ROW -->
+        <p>Send them happiness in the fragrance from a flower, and we will help you deliver smiles across the country.
+        <P>ORDER NOW!
       
+      <div class = "ridge">
       
-      <div class="row">
-        <button id="btn-submit" class="waves-effect waves-light btn-small indigo darken-3"><i class="material-icons left">chevron_right</i>SUBMIT</button>
-      </div> <!--CLOSE ROW -->
+        <div class ="row">
+          <div class="input-field col s6">
+            <input id="Fname" type="text" class="validate">
+            <label for="Fname">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="Lname" type="text" class="validate">
+            <label for="Lname">Last Name</label>
+          </div>
+        </div>   <!--CLOSE ROW -->
+        
+        <div class="row">
+          <div class="input-field col s6">
+            <select id = "Modes">
+              <option disabled selected>Choose your option</option>  
+              <?!= list; ?> 
+            </select>
+            <label>Modes Of Payment</label>
+          </div>
+          <div class="input-field col s6">
+            <input id = "prefDate" type="text" class="datepicker">
+            <label for="prefDate">Pick Delivery Date</label>
+          </div>
+        </div> <!--CLOSE ROW -->
+        
+        <div class="row">
+          <div class="input-field col s6">
+              <input id="zip" type="text" class="validate">
+              <label for="zip">Zip Code</label>
+            </div>
+            <div class="input-field col s6">
+              <input disabled id ="est" type="text" class="validate">
+              <label for="est">Estimate</label>
+          </div>
+        </div>   <!--CLOSE ROW -->
+        
+        <div class="row">
+          <button id="btn-submit" class="waves-effect waves-light btn-small indigo darken-3"><i class="material-icons left">chevron_right</i>SUBMIT</button>
+        </div>
+        
+      <div> <!--BORDER CLOSE -->
+        
     </div> <!--CLOSE CONTAINER -->
-     
-
+    </div> <!--CLOSE FIRST ROW -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <?!= include("main-JS");?>
     
