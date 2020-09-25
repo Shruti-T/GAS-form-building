@@ -2,7 +2,7 @@ var url = "https://docs.google.com/spreadsheets/d/1tEHSm0C2IDS_6rL3Motj-Q5SX_Sxx
 
 //Calling Form Page From Home page.
 function doGet(e)
-{
+{ 
   if(e.parameter.v == "form")
   {
     return loadForm();
@@ -13,7 +13,7 @@ function doGet(e)
   }
 }
 
-// My Modes Of Payment Options.
+// To load the form page and My Modes Of Payment Options.
 function loadForm(e)
 {
   var SpreadSheet = SpreadsheetApp.openByUrl(url);
@@ -22,7 +22,7 @@ function loadForm(e)
 
   var htmlListArray = list.map(function(r){ return "<option>"+ r[0] +"</option>";}).join("");
 
-  var tmp = HtmlService.createTemplateFromFile("index");
+  var tmp = HtmlService.createTemplateFromFile("FormPage");
   tmp.list = htmlListArray;
   
   return tmp.evaluate();
