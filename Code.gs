@@ -1,4 +1,4 @@
-var url = "https://docs.google.com/spreadsheets/d/1tEHSm0C2IDS_6rL3Motj-Q5SX_Sxx1ezJ11Ck26F5eE/edit#gid=0";
+var url = "https://docs.google.com/spreadsheets/d/1lSQQYpuIHz2vZfmp-t7qwo84ewjmWOEOyFwQy3Z-CCQ/edit#gid=0";
 
 //Calling Form Page From Home page.
 function doGet(e)
@@ -26,4 +26,8 @@ function loadForm(e)
   tmp.list = htmlListArray;
   
   return tmp.evaluate();
+}
+
+function include(filename){
+  return HtmlService.createHtmlOutputFromFile(filename).getContent();
 }

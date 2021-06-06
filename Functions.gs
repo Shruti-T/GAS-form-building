@@ -4,6 +4,12 @@ function saveUserInput(userInfo)
   var SpreadSheet = SpreadsheetApp.openByUrl(url);
   var workSheet = SpreadSheet.getSheetByName("form");
   
+  const countDownDate = new Date("Nov 25, 2020 21:00:00").getTime();
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  
+  //Logger.log(countDownDate);
+  
   workSheet.appendRow([userInfo.FirstName,userInfo.LastName,userInfo.Modes,userInfo.zip,userInfo.est,userInfo.prefDate,new Date()]); 
 }
 
@@ -39,7 +45,7 @@ function findEstimate(zipCode)
   
   var zipCodeList = data.map(function(r) {return r[0];} );
   var estimateList = data.map(function(r) {return r[1];} );
-  
+    
   var position = zipCodeList.indexOf(zipCode);
   
   if(position > -1)
